@@ -12,6 +12,7 @@ export default class Home extends Component {
   async init() {
     const todoList = await getTodo(); // 비동기 함수를 기다림
     this.render(todoList);
+    console.log(todoList);
   }
 
   render(todoList) {
@@ -19,6 +20,12 @@ export default class Home extends Component {
     this.el.innerHTML = /* html */`
      <h1>Home Page</h1>
     `
-    this.el.append(new TodoItem({ props: todoList }).el);
+    if (todoList) {
+      for (const item of todoList) {
+
+        this.el.append(new TodoItem({ props: item }).el);
+      }
+    }
   }
+
 }

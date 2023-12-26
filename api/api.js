@@ -15,8 +15,8 @@ const instance = axios.create({
 //     'username': 'KDT7_HamJiHun'
 //   },
 //   data: {
-//     "title": "KDT 과정 설계 미팅",
-//     "order": 1
+//     "title": "우리는 소리없는 부엉이요 발자국 없는 범이다.",
+//     "order": 3
 //   }
 // }).then(function (response) {
 //   console.log(response);
@@ -35,4 +35,3 @@ export default function getTodo() {
     return response.data;
   });
 }
-
