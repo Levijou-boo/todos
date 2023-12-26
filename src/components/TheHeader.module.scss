@@ -1,0 +1,55 @@
+.container {
+  margin-top: 20px;
+  img {
+    width: 100%;
+  }
+}
+.nav {
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+  position: fixed;
+  top: 0;
+  height: 100dvh;
+  z-index: 1;
+  &__links {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 40px;
+    a {
+      display: flex; // a 태그를 flex 요소로 만듭니다
+      align-items: center; // 가로 축 중앙 정렬
+      flex-direction: column;
+      color: #333;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      &:hover {
+        color: #000;
+      }
+    }
+    &__main {
+      a {
+        &::before {
+          font-family: "Material Symbols Outlined";
+          content: "\e88a";
+          font-size: 2.5rem;
+        }
+      }
+    }
+    &__about {
+      a {
+        &::before {
+          font-family: "Material Symbols Outlined";
+          content: "\f233";
+          font-size: 2.5rem;
+        }
+      }
+    }
+  }
+}

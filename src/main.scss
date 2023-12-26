@@ -1,0 +1,17 @@
+$navbar-width: 120px;
+
+html {
+  font-size: 16px;
+}
+
+nav {
+  width: $navbar-width;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #e1e3e8;
+}
+#router-view {
+  margin-left: $navbar-width;
+}
