@@ -36,7 +36,7 @@ export default class TodoSection extends Component {
     // 로딩 완료 후 추가 요소 추가
     const additionalElement = document.createElement('div');
     additionalElement.innerHTML = /* html */`
-    <div class=${styles.container}>
+    <div class=${styles["add-container"]}>
       add
     </div>
     `;
