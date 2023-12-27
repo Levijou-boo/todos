@@ -10,7 +10,15 @@ nav {
 }
 
 body {
-  background-color: #e1e3e8;
+  height: 200vh;
+  // background-color: #e1e3e8;
+  background-size: cover;
+  background-position: center;
+  background: {
+    image: url("../public/background.jpg");
+    repeat: no-repeat;
+    attachment: fixed;
+  }
 }
 #router-view {
   margin-left: $navbar-width;

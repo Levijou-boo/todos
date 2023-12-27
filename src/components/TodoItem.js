@@ -1,6 +1,6 @@
 import { Component } from "../core/core";
 import styles from './TodoItem.module.scss';
-import Loading from "./Loading";
+
 
 export default class TodoItem extends Component {
   constructor(props) {
@@ -8,9 +8,6 @@ export default class TodoItem extends Component {
   }
 
   render() {
-    console.log('todo');
-    console.log(this.props?.title);
-
     this.el.innerHTML = /* html */`
       <div class="${styles['container']}">
       <div class="loading-container"></div>
@@ -32,12 +29,6 @@ export default class TodoItem extends Component {
         </div>
       </div>
     `
-    const loadingContainer = this.el.querySelector('.loading-container');
-    const loadingComponent = new Loading();
-    loadingContainer.appendChild(loadingComponent.el);
 
-    if (this.props) {
-      loadingComponent.hide();
-    }
   }
 }
