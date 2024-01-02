@@ -23,7 +23,7 @@ export default class TodoSection extends Component {
 
   showLoading() {
     const loadingElement = document.getElementById('loading');
-    loadingElement.classList.remove('${}');
+    loadingElement.classList.remove(`${styles.hidden}`);
   }
 
   // 로딩 인디케이터 숨기기
