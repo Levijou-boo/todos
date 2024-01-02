@@ -23,7 +23,7 @@ export default class SannabiScroll extends Component {
           <img src="/src/img/Spr_PRLG_Forest_BG_Mountain.png" alt="">
       </div>
       <div id="rellax" class="${styles.tree1} ${styles.rellax}" data-rellax-speed="6">
-          <img src="/src/img/Prop_Forest (78).png" alt="">
+          <img src="../img/Prop_Forest (78).png" alt="">
       </div>
       <!-- <div class="${styles.tree2} ${styles.rellax}" data-rellax-speed="4">
           <img src="Prop_Forest (79).png" alt="">
