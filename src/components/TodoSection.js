@@ -15,10 +15,8 @@ export default class TodoSection extends Component {
   async init() {
     this.showLoading(); // 로딩 창 표시
     const todoList = await getTodos(); // 데이터 로딩 및 저장
-    setTimeout(() => {
-      this.render(todoList); // 데이터를 사용하여 렌더링
-      this.hideLoading(); // 로딩 인디케이터 제거
-    }, 100);
+    await this.render(todoList); // 데이터를 사용하여 렌더링
+    this.hideLoading(); // 로딩 인디케이터 제거
   }
 
   showLoading() {

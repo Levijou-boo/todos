@@ -14,10 +14,10 @@ export default class TheHeader extends Component {
       <div><img src="/src/img/logo.webp" alt="logo" /></div>
         <ul class="${styles['nav__links']}">
           <li class="${styles['nav__links__main']}">
-            <a href="/">Main!</a>
+            <a href="#/">Main!</a>
           </li>
           <li class="${styles['nav__links__about']}">
-              <a href="/about">about!</a>
+              <a href="#/about">about!</a>
             </li>
         </ul>
     </div>
