@@ -14,6 +14,7 @@ export default class TheHeader extends Component {
         <ul class="${styles['nav__links']}">
           <li class="${styles['nav__links__main']}">
             <a href="/">Main!</a>
+            <img src="mago.webp" alt="" />
           </li>
           <li class="${styles['nav__links__about']}">
               <a href="/about">about!</a>
