@@ -10,7 +10,7 @@ export default class TheHeader extends Component {
     this.el.innerHTML = /* html */`
     <nav class="${styles.nav}">
     <div class="${styles['container']}">
-      <div><img src="logo.webp" alt="" /></div>
+      <div><img src="logo.webp" alt="mago_logo" /></div>
         <ul class="${styles['nav__links']}">
           <li class="${styles['nav__links__main']}">
             <a href="/">Main!</a>
