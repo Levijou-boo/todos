@@ -8,19 +8,34 @@ import Sortable from 'sortablejs';
 export default class TodoSection extends Component {
   constructor() {
     super({ tagName: "section" });
+    this.el.className = "Todo-Section";
     this.init();
   }
 
   async init() {
     this.showLoading(); // 로딩 창 표시
     const todoList = await getTodos(); // 데이터 로딩 및 저장
-    setTimeout(() => this.render(todoList), 1000); // 최소 1초 후 렌더링
+    setTimeout(() => {
+      this.render(todoList); // 데이터를 사용하여 렌더링
+      this.hideLoading(); // 로딩 인디케이터 제거
+    }, 100);
   }
 
   showLoading() {
-    this.el.innerHTML = ''; // 기존 내용 비움
-    const loading = new Loading(); // Loading 인스턴스 생성
-    this.el.appendChild(loading.el); // Loading 인스턴스 추가
+    const loadingElement = document.getElementById('loading');
+    loadingElement.classList.remove('${}');
+  }
+
+  // 로딩 인디케이터 숨기기
+  hideLoading() {
+    const loadingElement = document.getElementById('loading');
+    loadingElement.classList.add('hidden');
+  }
+
+  // 로딩 인디케이터 토글
+  toggleLoading() {
+    const loadingElement = document.getElementById('loading');
+    loadingElement.classList.toggle('hidden');
   }
 
   render(todoList) {

@@ -1,0 +1,186 @@
+// body {
+//   margin: 0;
+// }
+
+// .back {
+//   position: relative;
+//   height: 300vh;
+//   background-image: url("../../Spr_PRLG_Forest_BG_Sky.png");
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   width: 100%;
+
+//   .mountain1 {
+//     position: absolute;
+//     bottom: 1249px;
+//     right: -120px;
+//   }
+//   .mountain2 {
+//     position: absolute;
+//     bottom: 1110px;
+//     left: -120px;
+//   }
+//   .mountain3 {
+//     position: absolute;
+//     bottom: -537px;
+//     left: 294px;
+//   }
+//   .mountain4 {
+//     position: absolute;
+//     bottom: -544px;
+//     right: 1080px;
+//   }
+//   .ground {
+//     position: absolute;
+//     bottom: -5px;
+//   }
+//   .sakura {
+//     position: absolute;
+//     bottom: 250px;
+//     left: 250px;
+//     img {
+//       height: 250px;
+//     }
+//   }
+//   .cloud3 {
+//     position: absolute;
+//     top: 5200px;
+//     left: -120px;
+//   }
+//   .cloud1 {
+//     position: absolute;
+//     top: 5200px;
+//     left: 120px;
+//   }
+//   .cloud2 {
+//     position: absolute;
+//     top: 5200px;
+//     left: 720px;
+//   }
+//   .tree1 {
+//     position: absolute;
+//     left: -250px;
+//     bottom: -1250px;
+//     img {
+//       height: 1000px;
+//     }
+//   }
+
+//   .tree2 {
+//     position: absolute;
+//     right: 0;
+//     bottom: 250px;
+//     img {
+//       height: 1000px;
+//     }
+//   }
+// }
+// .mid {
+//   height: 20vh;
+//   width: 100%;
+// }
+// .back2 {
+//   overflow: hidden;
+//   position: relative;
+//   background-image: url("../../back.png");
+//   width: 100%;
+//   height: 2579px;
+// }
+// .inner {
+//   width: 100%;
+//   position: absolute;
+//   top: 50%;
+//   overflow: auto;
+//   max-height: 50%;
+// }
+
+.back {
+  position: relative;
+  height: 200vh; /* 높이를 vh 단위로 유지 */
+  background-image: url("/src/img/Spr_PRLG_Forest_BG_Sky.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  overflow: hidden;
+
+  .mountain1 {
+    position: absolute;
+    bottom: 20%;
+    right: -3%;
+    img {
+      height: 1200px;
+    }
+  }
+  .mountain2 {
+    position: absolute;
+    bottom: 25%; /* vh 단위로 변경 */
+    left: -3%; /* vw 단위로 변경 */
+    img {
+      height: 700px;
+    }
+  }
+  .mountain3 {
+    position: absolute;
+    bottom: -13%; /* vh 단위로 변경 */
+    left: 11%; /* vw 단위로 변경 */
+  }
+  .mountain4 {
+    position: absolute;
+    bottom: -13%; /* vh 단위로 변경 */
+    right: 42%; /* vw 단위로 변경 */
+  }
+  .ground {
+    position: absolute;
+    bottom: 0; /* 맨 아래에 위치하도록 설정 */
+    left: 0; /* 왼쪽에 위치하도록 설정 */
+    width: 100%; /* 부모의 너비에 맞춤 */
+    /* 이미지가 컨테이너를 벗어나지 않도록 설정 */
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .sakura {
+    position: absolute;
+    bottom: 9%; /* vh 단위로 변경 */
+    left: 9%; /* vw 단위로 변경 */
+    img {
+      height: 25vh; /* vh 단위로 변경 */
+    }
+  }
+  .cloud3 {
+    height: 200vh;
+    position: absolute;
+    bottom: -10%; /* vh 단위로 변경 */
+    left: 20%; /* 위치에 따라 조정 필요 */
+  }
+  .cloud1 {
+    height: 200vh;
+    position: absolute;
+    bottom: -30%; /* vh 단위로 변경 */
+    left: -30%; /* 위치에 따라 조정 필요 */
+  }
+  .cloud2 {
+    height: 200vh;
+    position: absolute;
+    bottom: -20%; /* vh 단위로 변경 */
+    left: 0; /* 위치에 따라 조정 필요 */
+  }
+  .tree1 {
+    position: absolute;
+    left: -10%; /* vw 단위로 변경 */
+    bottom: -48%; /* vh 단위로 변경 */
+    img {
+      height: 38vh; /* vh 단위로 변경 */
+    }
+  }
+
+  .tree2 {
+    position: absolute;
+    right: 0;
+    bottom: 9%; /* vh 단위로 변경 */
+    img {
+      height: 38vh; /* vh 단위로 변경 */
+    }
+  }
+}

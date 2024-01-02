@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "axios": "^1.6.2",
+    "rellax": "^1.12.1",
     "sortablejs": "^1.15.1"
   }
 }

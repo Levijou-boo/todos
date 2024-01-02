@@ -9,3 +9,16 @@
 .sortable-ghost {
   opacity: 0.6;
 }
+
+.loadingBackground {
+  /* 기존 스타일 유지 */
+  display: none; /* 기본적으로 숨김 */
+}
+
+.loadingBackground.active {
+  display: flex; /* 활성화될 때만 표시 */
+}
+
+.hidden {
+  display: none;
+}

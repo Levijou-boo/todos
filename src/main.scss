@@ -1,3 +1,4 @@
+@import "./reset.scss";
 $navbar-width: 120px;
 
 html {
@@ -7,23 +8,6 @@ html {
 nav {
   width: $navbar-width;
   box-sizing: border-box;
-}
-
-body {
-  height: 200vh;
-  // background-color: #e1e3e8;
-  background-size: cover;
-  background-position: center;
-  background: {
-    image: url("mago.webp");
-    background-color: rgba(255, 255, 255, 0.828);
-    backdrop-filter: blur(10px);
-    repeat: no-repeat;
-    attachment: fixed;
-  }
-}
-#router-view {
-  margin-left: $navbar-width;
 }
 
 @mixin container {
@@ -38,4 +22,18 @@ body {
   border-radius: 0.5rem;
   background-color: #fff;
   box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+.Todo-Section {
+  padding: 20%;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+
+  background: {
+    image: url("/src/img/mago.webp");
+    repeat: no-repeat;
+    attachment: fixed;
+  }
+  backdrop-filter: blur(10px);
 }
