@@ -27,12 +27,13 @@ function routeRender(routes) {
     routerView.innerHTML = ''; // 기존 내용을 지웁니다.
     routerView.appendChild(componentInstance.el); // 컴포넌트의 최상위 요소를 추가합니다.
   } else {
-    const notFoundRoute = routes.find(route => route.path === '/404');
-    const notFoundComponentInstance = new notFoundRoute.component();
-    notFoundComponentInstance.render();
+    // const notFoundRoute = routes.find(route => route.path === '/404');
+    // const notFoundComponentInstance = new notFoundRoute.component();
+    // notFoundComponentInstance.render();
 
-    routerView.innerHTML = '';
-    routerView.appendChild(notFoundComponentInstance.el);
+    // routerView.innerHTML = '';
+    // routerView.appendChild(notFoundComponentInstance.el);
+
   }
 }
 export function createRouter(routes) {
