@@ -29,13 +29,13 @@ export default class TodoSection extends Component {
   // 로딩 인디케이터 숨기기
   hideLoading() {
     const loadingElement = document.getElementById('loading');
-    loadingElement.classList.add('hidden');
+    loadingElement.classList.add(`${styles.hidden}`);
   }
 
   // 로딩 인디케이터 토글
   toggleLoading() {
     const loadingElement = document.getElementById('loading');
-    loadingElement.classList.toggle('hidden');
+    loadingElement.classList.toggle(`${styles.hidden}`);
   }
 
   render(todoList) {
