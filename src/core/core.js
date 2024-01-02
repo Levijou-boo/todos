@@ -17,32 +17,29 @@ export class Component {
 
 
 // NOTE: Router
+// NOTE: Router
 function routeRender(routes) {
+  const path = window.location.pathname;
+  const targetRoute = routes.find(route => route.path === path) || routes.find(route => route.path === '/404');
+  const componentInstance = new targetRoute.component();
   const routerView = document.querySelector('#router-view');
-  const targetRoute = routes.find(route => route.path === location.pathname);
-
-  if (targetRoute && targetRoute.component) {
-    const componentInstance = new targetRoute.component();
-    componentInstance.render();
-    routerView.innerHTML = ''; // 기존 내용을 지웁니다.
-    routerView.appendChild(componentInstance.el); // 컴포넌트의 최상위 요소를 추가합니다.
-  } else {
-    // const notFoundRoute = routes.find(route => route.path === '/404');
-    // const notFoundComponentInstance = new notFoundRoute.component();
-    // notFoundComponentInstance.render();
-
-    // routerView.innerHTML = '';
-    // routerView.appendChild(notFoundComponentInstance.el);
-
-  }
+  routerView.innerHTML = '';
+  componentInstance.render();
+  routerView.appendChild(componentInstance.el);
 }
+
 export function createRouter(routes) {
   return function () {
-    window.addEventListener('popstate', () => {
-      routeRender(routes)
-    })
-    routeRender(routes)
-  }
+    window.addEventListener('popstate', () => routeRender(routes));
+    document.addEventListener('click', e => {
+      if (e.target.tagName === 'A' && e.target.getAttribute('href').startsWith('/')) {
+        e.preventDefault();
+        history.pushState({}, '', e.target.getAttribute('href'));
+        routeRender(routes);
+      }
+    });
+    routeRender(routes);
+  };
 }
 
 
