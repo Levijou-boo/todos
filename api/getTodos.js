@@ -13,21 +13,3 @@ export default async function getTodosHandler(req, res) {
   }
 }
 
-
-
-
-
-
-// export default function getTodo() {
-//   return axios({
-//     method: 'get',
-//     url: 'https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos',
-//     headers: {
-//       'content-type': 'application/json',
-//       'apikey': 'KDT7_GrZ1eYBo',
-//       'username': 'KDT7_HamJiHun'
-//     }
-//   }).then(function (response) {
-//     return response.data;
-//   });
-// }

@@ -4,6 +4,9 @@ $navbar-width: 120px;
 html {
   font-size: 16px;
 }
+body {
+  overflow-x: hidden;
+}
 
 nav {
   width: $navbar-width;
@@ -12,8 +15,8 @@ nav {
 
 @mixin container {
   box-sizing: border-box;
-  width: 600px;
-  height: 200px;
+  width: 400px;
+  height: 100px;
   display: flex;
   position: relative;
   align-items: center;
@@ -31,10 +34,10 @@ nav {
   padding: 20px 50px;
   min-height: 100vh;
   background-size: cover;
-  background-position: center;
+  background-position: center 0%;
 
   background: {
-    image: url("/src/img/mago.webp");
+    image: url("/img/207662_218776_1753.jpg");
     repeat: no-repeat;
     attachment: fixed;
   }
