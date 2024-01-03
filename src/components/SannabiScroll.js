@@ -8,7 +8,7 @@ export default class SannabiScroll extends Component {
         this.el.innerHTML = /* html */`
     <div class="${styles.back}">
       <div id="rellax" class="${styles.mountain3} ${styles.rellax}" data-rellax-speed="4">
-          <img src="/img/Spr_PRLG_Forest_BG_Mountain.png" alt="">
+          <img src="/img/Spr_PRLG_Forest_BG_Mountain.png" alt="a">
       </div>
       <div id="rellax" class="${styles.mountain4} ${styles.rellax}" data-rellax-speed="4">
           <img src="/img/Spr_PRLG_Forest_BG_Mountain.png" alt="">
