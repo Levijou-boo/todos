@@ -11,7 +11,7 @@ export default class TheHeader extends Component {
     this.el.innerHTML = /* html */`
     <nav class="${styles.nav}">
     <div class="${styles['container']}">
-      <div><img src="/src/img/logo.webp" alt="logo" /></div>
+      <div><img src="/img/logo.webp" alt="logo" /></div>
         <ul class="${styles['nav__links']}">
           <li class="${styles['nav__links__main']}">
             <a href="#/">Main!</a>

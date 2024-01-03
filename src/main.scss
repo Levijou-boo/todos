@@ -25,7 +25,10 @@ nav {
 }
 
 .Todo-Section {
-  padding: 20%;
+  position: relative;
+  right: calc(-1 * ($navbar-width));
+  width: calc(100% - ($navbar-width));
+  padding: 20px 50px;
   min-height: 100vh;
   background-size: cover;
   background-position: center;

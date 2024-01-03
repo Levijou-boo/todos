@@ -10,9 +10,6 @@ export default class About extends Component {
     const { a, b, c } = history.state || {};
     this.el.innerHTML = /* html */`
      <h1>About Page</h1>
-     <h1>${a}</h1>
-     <h1>${b}</h1>
-     <h1>${c}</h1>
     `
   }
 }
