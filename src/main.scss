@@ -7,7 +7,7 @@ html {
 }
 nav {
   width: $navbar-width;
-  box-sizing: border-box;
+  // box-sizing: border-box;
 }
 
 @mixin container {
@@ -25,21 +25,34 @@ nav {
 }
 
 .Todo-Section {
-  width: calc(110% - ($navbar-width));
+  width: calc(120% - ($navbar-width));
   padding: 20px 50px;
   min-height: 100vh;
   background-size: cover;
   background-position: center 0%;
   display: flex;
-  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: scroll;
+
   background: {
     image: url("/img/207662_218776_1753.jpg");
     repeat: no-repeat;
     attachment: fixed;
   }
-  backdrop-filter: blur(10px);
 }
 .sannabi-scroll {
-  position: relative;
-  right: calc(-1 * ($navbar-width));
+  // position: relative;
+  // right: calc(-1 * ($navbar-width));
+  width: 100%;
+  margin-left: calc($navbar-width);
+}
+
+@media screen and (max-width: 600px) {
+  .sannabi-scroll {
+    display: none;
+  }
+  header {
+    display: none;
+  }
 }

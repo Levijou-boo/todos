@@ -3,6 +3,7 @@ import { getTodos } from '../api/todoApi';
 import TodoItem from "./TodoItem";
 import styles from "./TodoSection.module.scss";
 import Loading from "./Loading";
+import InputField from "./InputField";
 import Sortable from 'sortablejs';
 
 export default class TodoSection extends Component {
@@ -75,7 +76,6 @@ export default class TodoSection extends Component {
 
   render(todoList) {
     this.el.innerHTML = ''; // 로딩 컴포넌트 숨김 및 내용 비움
-
     // 새로운 래퍼 div 생성
     const wrapperDiv = document.createElement('div');
     wrapperDiv.className = `${styles.wrapper}`; // 래퍼 div에 클래스 이름 추가
@@ -96,7 +96,7 @@ export default class TodoSection extends Component {
       animation: 150, // 드래그 애니메이션 속도
       ghostClass: `${styles['sortable-ghost']}` // 드래그 시 적용할 CSS 클래스
     });
-
+    this.el.appendChild(new InputField().el);
     this.el.appendChild(wrapperDiv); // wrapperDiv를 this.el에 추가
   }
 
