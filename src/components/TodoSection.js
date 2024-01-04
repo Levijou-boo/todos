@@ -1,5 +1,5 @@
 import { Component } from "../core/core";
-import { getTodos } from '../api/todoApi';
+import { getTodos, addTodo } from '../api/todoApi';
 import TodoItem from "./TodoItem";
 import styles from "./TodoSection.module.scss";
 import Loading from "./Loading";
@@ -51,6 +51,24 @@ export default class TodoSection extends Component {
     completedContainer.className = 'completed-container';
     return completedContainer;
   }
+  // todo추가
+  handleTodoCreate = async (val) => {
+    if (val) {
+      const todo = {
+        order: this.todoList.length + 1,
+        title: val,
+        createAt: Date.now(),
+        updateAt: Date.now()
+      };
+      this.todoList.push(todo);
+      this.render(this.todoList);
+      console.log(this.todoList);
+      await addTodo(todo);
+      this.todoList = await getTodos();
+      this.render(this.todoList);
+    }
+  };
+
   handleTodoUpdate = (id, done) => {
     console.log('handleTodoUpdate', id, done);
     const todoIndex = this.todoList.findIndex(item => item.id === id);
@@ -60,10 +78,15 @@ export default class TodoSection extends Component {
     }
   };
 
+  handleTodoDelete = (id) => {
+    console.log('handleTodoUpdate', id);
+    const todo = {}
+
+  };
   // todolist 랜더링
   renderTodoList(todoList, todoContainer, completedContainer) {
     for (const item of todoList) {
-      const todoItem = new TodoItem({ props: { ...item, onTodoUpdate: this.handleTodoUpdate } }).el;
+      const todoItem = new TodoItem({ props: { ...item, onTodoUpdate: this.handleTodoUpdate, } }).el;
       if (item.done) {
         completedContainer.appendChild(todoItem);
       } else {
@@ -78,7 +101,7 @@ export default class TodoSection extends Component {
     this.el.innerHTML = ''; // 로딩 컴포넌트 숨김 및 내용 비움
     // 새로운 래퍼 div 생성
     const wrapperDiv = document.createElement('div');
-    wrapperDiv.className = `${styles.wrapper}`; // 래퍼 div에 클래스 이름 추가
+    wrapperDiv.className = styles.wrapper; // 래퍼 div에 클래스 이름 추가
 
     const todoContainer = this.createTodoContainer();
     const completedContainer = this.createCompletedContainer();
@@ -94,9 +117,9 @@ export default class TodoSection extends Component {
     // SortableJS 적용
     new Sortable(todoContainer, {
       animation: 150, // 드래그 애니메이션 속도
-      ghostClass: `${styles['sortable-ghost']}` // 드래그 시 적용할 CSS 클래스
+      ghostClass: styles['sortable-ghost'] // 드래그 시 적용할 CSS 클래스
     });
-    this.el.appendChild(new InputField().el);
+    this.el.appendChild(new InputField({ props: { onCreate: this.handleTodoCreate, } }).el);
     this.el.appendChild(wrapperDiv); // wrapperDiv를 this.el에 추가
   }
 

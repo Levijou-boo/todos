@@ -23,5 +23,12 @@ export const delTodo = async (id) => {
   }
 };
 
-
-delTodo("01mhb0JC0tIPGv0ULnH1");
+export const addTodo = async (todo) => {
+  try {
+    const response = await axios.post('/api/addTodo', { data: { todo } });
+    return response.data;
+  } catch (error) {
+    console.error('API 호출 오류 /scr/api/addTodo:', error);
+    throw error;
+  }
+};

@@ -10,27 +10,26 @@ export default class TodoItem extends Component {
   }
 
   render() {
-    const isChecked = this.props.done ? 'checked' : 'z';
+    const isChecked = this.props.done ? 'checked' : '';
 
     const createAt = dayjs(this.props.createdAt).fromNow();
     const updatedAt = dayjs(this.props.updatedAt).fromNow();
     this.el.innerHTML = /* html */`
     <div class="${styles['container']}" data-id="${this.props?.id}" data-order="${this.props?.order}">
-      <div class="loading-container"></div>
         <div class="input-check">
           <input class="checkbox" type="checkbox" ${this.props.done ? 'checked' : ''}>
         </div>
         <div>
           <h3>${this.props?.title}</h3>
           <div>
-            <span>생성일</span><time>${createAt}</time>
+            <span>Create: </span><time>${createAt}</time>
           </div>
           <div>
-            <span>수정일</span><time>${updatedAt}</time>
+            <span>Update: </span><time>${updatedAt}</time>
           </div>
           <div>
-            <span>1</span>
-            <span>2</span>
+            <span id="delete" class="${styles.delete}"></span>
+            <span class="${styles.edit}"></span>
           </div>
         </div>
       </div>
@@ -39,5 +38,8 @@ export default class TodoItem extends Component {
       const isChecked = this.el.querySelector('.checkbox').checked;
       this.props.onTodoUpdate(this.props.id, isChecked);
     });
+    this.el.querySelector('#delete').addEventListener('click', () => {
+      console.log('clicking delete');
+    })
   }
 }

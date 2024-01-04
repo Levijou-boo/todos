@@ -26,6 +26,19 @@
   animation: spin 2s linear infinite;
 }
 
+.delete {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 0.5rem;
+  &::before {
+    font-family: "Material Symbols Outlined";
+    content: "\e872";
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);

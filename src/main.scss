@@ -26,7 +26,7 @@ nav {
 
 .Todo-Section {
   width: calc(120% - ($navbar-width));
-  padding: 20px 50px;
+  padding: 200px 0px 0px;
   min-height: 100vh;
   background-size: cover;
   background-position: center 0%;
@@ -34,12 +34,16 @@ nav {
   align-items: center;
   flex-direction: column;
   overflow: scroll;
-
+  scrollbar-width: none; /* 파이어폭스 */
+  -ms-overflow-style: none; /* IE 10+ */
   background: {
     image: url("/img/207662_218776_1753.jpg");
     repeat: no-repeat;
     attachment: fixed;
   }
+}
+.Todo-Section::-webkit-scrollbar {
+  display: none; /* 크롬, 사파리, 오페라 브라우저 */
 }
 .sannabi-scroll {
   // position: relative;
@@ -48,7 +52,7 @@ nav {
   margin-left: calc($navbar-width);
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1024px) {
   .sannabi-scroll {
     display: none;
   }
