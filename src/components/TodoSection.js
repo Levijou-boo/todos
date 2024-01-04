@@ -1,5 +1,5 @@
 import { Component } from "../core/core";
-import { getTodos, addTodo } from '../api/todoApi';
+import { getTodos, addTodo, delTodo } from '../api/todoApi';
 import TodoItem from "./TodoItem";
 import styles from "./TodoSection.module.scss";
 import Loading from "./Loading";
@@ -70,23 +70,24 @@ export default class TodoSection extends Component {
   };
 
   handleTodoUpdate = (id, done) => {
-    console.log('handleTodoUpdate', id, done);
     const todoIndex = this.todoList.findIndex(item => item.id === id);
     if (todoIndex > -1) {
       this.todoList[todoIndex].done = done;
+
       this.render(this.todoList)
     }
   };
 
   handleTodoDelete = (id) => {
-    console.log('handleTodoUpdate', id);
-    const todo = {}
-
+    this.todoList = this.todoList.filter(todo => todo.id !== id);
+    this.render(this.todoList);
+    delTodo(id);
   };
+
   // todolist 랜더링
   renderTodoList(todoList, todoContainer, completedContainer) {
     for (const item of todoList) {
-      const todoItem = new TodoItem({ props: { ...item, onTodoUpdate: this.handleTodoUpdate, } }).el;
+      const todoItem = new TodoItem({ props: { ...item, onTodoUpdate: this.handleTodoUpdate, onDelete: this.handleTodoDelete } }).el;
       if (item.done) {
         completedContainer.appendChild(todoItem);
       } else {
@@ -119,7 +120,7 @@ export default class TodoSection extends Component {
       animation: 150, // 드래그 애니메이션 속도
       ghostClass: styles['sortable-ghost'] // 드래그 시 적용할 CSS 클래스
     });
-    this.el.appendChild(new InputField({ props: { onCreate: this.handleTodoCreate, } }).el);
+    this.el.appendChild(new InputField({ props: { onCreate: this.handleTodoCreate } }).el);
     this.el.appendChild(wrapperDiv); // wrapperDiv를 this.el에 추가
   }
 

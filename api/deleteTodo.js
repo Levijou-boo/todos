@@ -2,7 +2,6 @@ import TodoApi from './apiCore.js';
 
 // 할 일 삭제 핸들러
 export default async function deleteTodoHandler(req, res) {
-  console.log('deleteTodoHandler');
   const todoApi = new TodoApi();
   const { id: todoId } = req.body; // 요청 본문에서 할 일 ID를 가져옴
 

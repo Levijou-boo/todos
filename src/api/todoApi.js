@@ -14,7 +14,6 @@ export const getTodos = async () => {
 
 export const delTodo = async (id) => {
   try {
-    console.log('api_first');
     const response = await axios.delete('/api/deleteTodo', { data: { id } });
     return response.data;
   } catch (error) {

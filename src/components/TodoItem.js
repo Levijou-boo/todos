@@ -17,7 +17,7 @@ export default class TodoItem extends Component {
     this.el.innerHTML = /* html */`
     <div class="${styles['container']}" data-id="${this.props?.id}" data-order="${this.props?.order}">
         <div class="input-check">
-          <input class="checkbox" type="checkbox" ${this.props.done ? 'checked' : ''}>
+          <input class="checkbox" type="checkbox" ${this.props.done ? 'checked' : ''} ${!this.props.id ? 'disabled' : ''}>
         </div>
         <div>
           <h3>${this.props?.title}</h3>
@@ -28,7 +28,7 @@ export default class TodoItem extends Component {
             <span>Update: </span><time>${updatedAt}</time>
           </div>
           <div>
-            <span id="delete" class="${styles.delete}"></span>
+            <span id="delete" class="${styles.delete} ${this.props.id ? '' : styles.disable}">
             <span class="${styles.edit}"></span>
           </div>
         </div>
@@ -39,7 +39,11 @@ export default class TodoItem extends Component {
       this.props.onTodoUpdate(this.props.id, isChecked);
     });
     this.el.querySelector('#delete').addEventListener('click', () => {
-      console.log('clicking delete');
-    })
+      if (this.props.id) {
+        this.el.querySelector('#delete').addEventListener('click', () => {
+          this.props.onDelete(this.props.id);
+        });
+      }
+    });
   }
 }
