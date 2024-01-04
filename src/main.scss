@@ -3,11 +3,8 @@ $navbar-width: 120px;
 
 html {
   font-size: 16px;
-}
-body {
   overflow-x: hidden;
 }
-
 nav {
   width: $navbar-width;
   box-sizing: border-box;
@@ -28,18 +25,21 @@ nav {
 }
 
 .Todo-Section {
-  position: relative;
-  right: calc(-1 * ($navbar-width));
-  width: calc(100% - ($navbar-width));
+  width: calc(110% - ($navbar-width));
   padding: 20px 50px;
   min-height: 100vh;
   background-size: cover;
   background-position: center 0%;
-
+  display: flex;
+  justify-content: center;
   background: {
     image: url("/img/207662_218776_1753.jpg");
     repeat: no-repeat;
     attachment: fixed;
   }
   backdrop-filter: blur(10px);
+}
+.sannabi-scroll {
+  position: relative;
+  right: calc(-1 * ($navbar-width));
 }

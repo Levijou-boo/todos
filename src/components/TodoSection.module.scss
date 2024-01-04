@@ -1,9 +1,15 @@
 @import "../main.scss";
 
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
 .add-container {
   @include container;
   background-color: transparent;
-  border: 4px dashed black;
+  border: 4px dashed #fff;
 }
 
 .sortable-ghost {

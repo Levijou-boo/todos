@@ -4,7 +4,7 @@ import TodoApi from './apiCore.js';
 export default async function deleteTodoHandler(req, res) {
   console.log('deleteTodoHandler');
   const todoApi = new TodoApi();
-  const todoId = req.params.id; // URL 파라미터에서 할 일 ID를 가져옴
+  const { id: todoId } = req.body; // 요청 본문에서 할 일 ID를 가져옴
 
   try {
     await todoApi.deleteTodo(todoId);

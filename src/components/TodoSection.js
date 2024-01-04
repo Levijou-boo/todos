@@ -10,12 +10,13 @@ export default class TodoSection extends Component {
     super({ tagName: "section" });
     this.el.className = "Todo-Section";
     this.init();
+    this.todoList = [];
   }
 
   async init() {
     this.showLoading(); // 로딩 창 표시
     const todoList = await getTodos(); // 데이터 로딩 및 저장
-    console.log(todoList);
+    this.todoList = todoList;
     await this.render(todoList); // 데이터를 사용하여 렌더링
     this.hideLoading(); // 로딩 인디케이터 제거
   }
@@ -40,6 +41,7 @@ export default class TodoSection extends Component {
   createTodoContainer() {
     const todoContainer = document.createElement('div');
     todoContainer.className = 'todo-container';
+    todoContainer.Id
     return todoContainer;
   }
 
@@ -48,10 +50,19 @@ export default class TodoSection extends Component {
     completedContainer.className = 'completed-container';
     return completedContainer;
   }
+  handleTodoUpdate = (id, done) => {
+    console.log('handleTodoUpdate', id, done);
+    const todoIndex = this.todoList.findIndex(item => item.id === id);
+    if (todoIndex > -1) {
+      this.todoList[todoIndex].done = done;
+      this.render(this.todoList)
+    }
+  };
 
+  // todolist 랜더링
   renderTodoList(todoList, todoContainer, completedContainer) {
     for (const item of todoList) {
-      const todoItem = new TodoItem({ props: item }).el;
+      const todoItem = new TodoItem({ props: { ...item, onTodoUpdate: this.handleTodoUpdate } }).el;
       if (item.done) {
         completedContainer.appendChild(todoItem);
       } else {
@@ -67,7 +78,7 @@ export default class TodoSection extends Component {
 
     // 새로운 래퍼 div 생성
     const wrapperDiv = document.createElement('div');
-    wrapperDiv.className = 'wrapper'; // 래퍼 div에 클래스 이름 추가
+    wrapperDiv.className = `${styles.wrapper}`; // 래퍼 div에 클래스 이름 추가
 
     const todoContainer = this.createTodoContainer();
     const completedContainer = this.createCompletedContainer();
@@ -76,25 +87,15 @@ export default class TodoSection extends Component {
       this.renderTodoList(todoList, todoContainer, completedContainer);
     }
 
-    this.el.appendChild(todoContainer);
-    this.el.appendChild(completedContainer);
 
     wrapperDiv.appendChild(todoContainer); // todoContainer를 wrapperDiv에 추가
+    wrapperDiv.appendChild(completedContainer); // completedContainer를 wrapperDiv에 추가
 
     // SortableJS 적용
     new Sortable(todoContainer, {
       animation: 150, // 드래그 애니메이션 속도
       ghostClass: `${styles['sortable-ghost']}` // 드래그 시 적용할 CSS 클래스
     });
-
-    // 추가 요소 추가
-    const additionalElement = document.createElement('div');
-    additionalElement.innerHTML = /* html */`
-      <div class="${styles["add-container"]}">
-        add
-      </div>
-    `;
-    wrapperDiv.appendChild(additionalElement); // additionalElement를 wrapperDiv에 추가
 
     this.el.appendChild(wrapperDiv); // wrapperDiv를 this.el에 추가
   }

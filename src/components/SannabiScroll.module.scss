@@ -113,7 +113,7 @@
   }
   .mountain2 {
     position: absolute;
-    bottom: 25%; /* vh 단위로 변경 */
+    bottom: 45%; /* vh 단위로 변경 */
     left: -3%; /* vw 단위로 변경 */
     img {
       height: 700px;
@@ -121,17 +121,23 @@
   }
   .mountain3 {
     position: absolute;
-    bottom: -13%; /* vh 단위로 변경 */
+    bottom: 0%; /* vh 단위로 변경 */
     left: 11%; /* vw 단위로 변경 */
+    img {
+      height: 700px;
+    }
   }
   .mountain4 {
     position: absolute;
-    bottom: -13%; /* vh 단위로 변경 */
+    bottom: 0%; /* vh 단위로 변경 */
     right: 42%; /* vw 단위로 변경 */
+    img {
+      height: 700px;
+    }
   }
   .ground {
     position: absolute;
-    bottom: 0; /* 맨 아래에 위치하도록 설정 */
+    bottom: -5px; /* 맨 아래에 위치하도록 설정 */
     left: 0; /* 왼쪽에 위치하도록 설정 */
     width: 100%; /* 부모의 너비에 맞춤 */
     /* 이미지가 컨테이너를 벗어나지 않도록 설정 */

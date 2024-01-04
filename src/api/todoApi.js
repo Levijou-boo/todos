@@ -15,14 +15,10 @@ export const getTodos = async () => {
 export const delTodo = async (id) => {
   try {
     console.log('api_first');
-    const response = await axios.delete(`/api/deleteTodo/${id}`); // 'get'을 'delete'로 변경
+    const response = await axios.delete('/api/deleteTodo', { data: { id } });
     return response.data;
   } catch (error) {
-    console.error('API 호출 오류 delTodo:', error);
-    if (error.response) {
-      console.error('응답 상태:', error.response.status);
-      console.error('응답 데이터:', error.response.data);
-    }
+    console.error('API 호출 오류 /scr/api/delTodo:', error);
     throw error;
   }
 };
