@@ -31,3 +31,13 @@ export const addTodo = async (todo) => {
     throw error;
   }
 };
+
+export const putTodo = async (todo) => {
+  try {
+    const response = await axios.put('/api/putTodo', { data: { todo } });
+    return response.data;
+  } catch (error) {
+    console.error('API 호출 오류 /scr/api/putTodo:', error);
+    throw error;
+  }
+};

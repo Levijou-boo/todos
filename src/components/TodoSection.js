@@ -1,5 +1,5 @@
 import { Component } from "../core/core";
-import { getTodos, addTodo, delTodo } from '../api/todoApi';
+import { getTodos, addTodo, delTodo, putTodo } from '../api/todoApi';
 import TodoItem from "./TodoItem";
 import styles from "./TodoSection.module.scss";
 import Loading from "./Loading";
@@ -68,14 +68,20 @@ export default class TodoSection extends Component {
       this.render(this.todoList);
     }
   };
-
+  //checkbox 업데이트
   handleTodoUpdate = (id, done) => {
     const todoIndex = this.todoList.findIndex(item => item.id === id);
-    if (todoIndex > -1) {
-      this.todoList[todoIndex].done = done;
-
-      this.render(this.todoList)
+    const currentTodo = this.todoList[todoIndex];
+    const todo = {
+      id: id,
+      title: currentTodo.title,
+      done: done,
+      order: currentTodo.order
     }
+    this.todoList[todoIndex].done = done;
+    console.log(todo);
+    putTodo(todo);
+    this.render(this.todoList);
   };
 
   handleTodoDelete = (id) => {
