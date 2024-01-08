@@ -26,18 +26,32 @@
   animation: spin 2s linear infinite;
 }
 
-.delete {
+.menu {
+  display: flex;
+  justify-content: space-between;
   position: absolute;
-  bottom: 0;
+  bottom: 0.3rem;
   right: 0;
-  padding: 0.5rem;
-  &::before {
-    font-family: "Material Symbols Outlined";
-    content: "\e872";
-    font-size: 1.5rem;
-    cursor: pointer;
+  .delete {
+    padding: 0.5rem;
+    &::before {
+      font-family: "Material Symbols Outlined";
+      content: "\e872";
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+  }
+  .edit {
+    padding: 0.5rem;
+    &::before {
+      font-family: "Material Symbols Outlined";
+      content: "\e3c9";
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
   }
 }
+
 .disable {
   color: #ccc;
   &::before {

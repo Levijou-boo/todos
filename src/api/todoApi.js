@@ -31,6 +31,27 @@ export const addTodo = async (todo) => {
     throw error;
   }
 };
+/* 
+ ### 항목 수정
+
+ 특정 할 일 항목을 수정합니다.
+
+
+```ts
+interface RequestBody {
+  title: string; // 할 일 제목 (필수!)
+  done: boolean; // 할 일 완료 여부 (필수!)
+  order?: number; // 할 일 순서
+}
+```
+
+  ```json
+{
+  "title": "Bootstrap 스타일 추가",
+  "done": false,
+  "order": 2
+}
+``` */
 
 export const putTodo = async (todo) => {
   try {

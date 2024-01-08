@@ -92,16 +92,39 @@ export default class TodoSection extends Component {
 
   // todolist 랜더링
   renderTodoList(todoList, todoContainer, completedContainer) {
+    let activeTodoList = [];
+    let completedTodoList = [];
+    let idList = [];
+
+    // 할 일 항목을 완료 여부에 따라 분류
     for (const item of todoList) {
-      const todoItem = new TodoItem({ props: { ...item, onTodoUpdate: this.handleTodoUpdate, onDelete: this.handleTodoDelete } }).el;
       if (item.done) {
-        completedContainer.appendChild(todoItem);
+        completedTodoList.push(item);
       } else {
-        todoContainer.appendChild(todoItem);
+        activeTodoList.push(item);
       }
     }
-  }
 
+    // 완료되지 않은 할 일 항목 랜더링
+    for (let i = 0; i < activeTodoList.length; i++) {
+      const item = activeTodoList[i];
+      const todoItem = new TodoItem({ props: { ...item, index: i + 1, onTodoUpdate: this.handleTodoUpdate, onDelete: this.handleTodoDelete } }).el;
+      todoContainer.appendChild(todoItem);
+      idList.push(item.id); // ID를 리스트에 추가
+    }
+
+    // 완료된 할 일 항목 랜더링
+    for (let i = 0; i < completedTodoList.length; i++) {
+      const item = completedTodoList[i];
+      const todoItem = new TodoItem({ props: { ...item, index: activeTodoList.length + i + 1, onTodoUpdate: this.handleTodoUpdate, onDelete: this.handleTodoDelete } }).el;
+      completedContainer.appendChild(todoItem);
+      idList.push(item.id); // ID를 리스트에 추가
+    }
+
+    // ID 리스트 반환
+    console.log(idList);
+    return idList;
+  }
 
 
   render(todoList) {

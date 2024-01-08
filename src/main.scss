@@ -25,6 +25,7 @@ nav {
 }
 
 .Todo-Section {
+  position: relative;
   width: calc(120% - ($navbar-width));
   padding: 200px 0px 0px;
   min-height: 100vh;
@@ -33,7 +34,7 @@ nav {
   display: flex;
   align-items: center;
   flex-direction: column;
-  overflow: scroll;
+  overflow: hidden;
   scrollbar-width: none; /* 파이어폭스 */
   -ms-overflow-style: none; /* IE 10+ */
   background: {
@@ -41,7 +42,15 @@ nav {
     repeat: no-repeat;
     attachment: fixed;
   }
+  // &::after {
+  //   content: "";
+  //   backdrop-filter: blur(2px);
+  //   position: absolute;
+  //   width: 100%;
+  //   height: 100%;
+  // }
 }
+
 .Todo-Section::-webkit-scrollbar {
   display: none; /* 크롬, 사파리, 오페라 브라우저 */
 }
