@@ -1,14 +1,16 @@
 import { Component } from "../core/core";
-
+import AboutComponent from "../components/AboutComponent";
 export default class About extends Component {
 
   constructor() {
     super()
   }
 
+
   render() {
+
     this.el.innerHTML = /* html */`
-     <h1>About Page</h1>
-    `
+    `;
+    this.el.append(new AboutComponent().el);
   }
 }

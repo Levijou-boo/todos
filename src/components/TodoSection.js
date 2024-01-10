@@ -2,7 +2,6 @@ import { Component } from "../core/core";
 import { getTodos, addTodo, delTodo, putTodo, reorderTodos } from '../api/todoApi';
 import TodoItem from "./TodoItem";
 import styles from "./TodoSection.module.scss";
-import Loading from "./Loading";
 import InputField from "./InputField";
 import Sortable from 'sortablejs';
 

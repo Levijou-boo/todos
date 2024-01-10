@@ -17,6 +17,7 @@
     "axios": "^1.6.2",
     "dayjs": "^1.11.10",
     "rellax": "^1.12.1",
-    "sortablejs": "^1.15.1"
+    "sortablejs": "^1.15.1",
+    "swiper": "^11.0.5"
   }
 }

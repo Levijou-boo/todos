@@ -1,5 +1,6 @@
 @import "./reset.scss";
-$navbar-width: 120px;
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
+$navbar-width: 160px;
 
 html {
   font-size: 16px;
@@ -7,7 +8,7 @@ html {
 }
 nav {
   width: $navbar-width;
-  // box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 @mixin container {
@@ -61,9 +62,23 @@ nav {
   margin-left: calc($navbar-width);
 }
 
+.about {
+  // position: relative;
+  // right: calc(-1 * ($navbar-width));
+  width: calc(100% - $navbar-width);
+  margin-left: calc($navbar-width);
+}
+.hidden {
+  display: none;
+}
+
 @media screen and (max-width: 1024px) {
   .sannabi-scroll {
     display: none;
+  }
+  .about {
+    margin-left: 0;
+    width: 100%;
   }
   header {
     display: none;
