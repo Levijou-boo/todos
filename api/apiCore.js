@@ -49,7 +49,8 @@ class TodoApi {
 
   // 할 일 순서 변경
   reorderTodos(todoIds) {
-    return this.instance.post('/reorder', { todoIds })
+    console.log({ todoIds });
+    return this.instance.put('/reorder', { todoIds })
       .then(response => response.data)
       .catch(error => console.error(error));
   }

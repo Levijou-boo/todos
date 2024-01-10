@@ -1,5 +1,5 @@
 import { Component } from "../core/core";
-import { getTodos, addTodo, delTodo, putTodo } from '../api/todoApi';
+import { getTodos, addTodo, delTodo, putTodo, reorderTodos } from '../api/todoApi';
 import TodoItem from "./TodoItem";
 import styles from "./TodoSection.module.scss";
 import Loading from "./Loading";
@@ -120,10 +120,10 @@ export default class TodoSection extends Component {
       completedContainer.appendChild(todoItem);
       idList.push(item.id); // ID를 리스트에 추가
     }
-
+    reorderTodos(idList);
     // ID 리스트 반환
-    console.log(idList);
-    return idList;
+
+
   }
 
 
