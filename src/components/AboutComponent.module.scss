@@ -73,36 +73,10 @@ introduce .hidden {
 
 .back2 {
   width: 100%;
-  height: 30vh;
+  height: 40vh;
   background-image: url("/img/mago.webp");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-}
-
-.slider-wrapper {
-  position: relative;
-  height: 100vh;
-}
-
-.swiper-wrapper {
-  position: absolute;
-  top: 50%;
-  left: 30%;
-  display: flex;
-  justify-content: center;
-}
-.swiper {
-  width: 50%;
-  margin-left: $navbar-width;
-}
-.swiper-slide {
-  width: 50%;
-  border-radius: 10px;
-
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  img {
-    width: 100%;
-  }
 }
